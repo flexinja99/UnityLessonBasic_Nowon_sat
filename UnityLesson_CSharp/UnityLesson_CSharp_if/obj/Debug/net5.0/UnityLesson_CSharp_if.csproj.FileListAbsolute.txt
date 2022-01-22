@@ -1,0 +1,5 @@
+C:\Users\User\source\repos\UnityLesson_CSharp\UnityLesson_CSharp_if\obj\Debug\net5.0\UnityLesson_CSharp_if.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\UnityLesson_CSharp\UnityLesson_CSharp_if\obj\Debug\net5.0\UnityLesson_CSharp_if.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\UnityLesson_CSharp\UnityLesson_CSharp_if\obj\Debug\net5.0\UnityLesson_CSharp_if.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\UnityLesson_CSharp\UnityLesson_CSharp_if\obj\Debug\net5.0\UnityLesson_CSharp_if.AssemblyInfo.cs
+C:\Users\User\source\repos\UnityLesson_CSharp\UnityLesson_CSharp_if\obj\Debug\net5.0\UnityLesson_CSharp_if.csproj.CoreCompileInputs.cache
