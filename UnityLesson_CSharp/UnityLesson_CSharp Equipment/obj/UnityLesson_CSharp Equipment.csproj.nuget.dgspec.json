@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\User\\source\\repos\\UnityLesson_CSharp_ClassincludingVariablesFunctions\\UnityLesson_CSharp Equipment\\UnityLesson_CSharp Equipment.csproj": {}
+    "C:\\Users\\User\\Documents\\GitHub\\UnityLessonBasic_Nowon_sat\\UnityLesson_CSharp\\UnityLesson_CSharp Equipment\\UnityLesson_CSharp Equipment.csproj": {}
   },
   "projects": {
-    "C:\\Users\\User\\source\\repos\\UnityLesson_CSharp_ClassincludingVariablesFunctions\\UnityLesson_CSharp Equipment\\UnityLesson_CSharp Equipment.csproj": {
+    "C:\\Users\\User\\Documents\\GitHub\\UnityLessonBasic_Nowon_sat\\UnityLesson_CSharp\\UnityLesson_CSharp Equipment\\UnityLesson_CSharp Equipment.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\User\\source\\repos\\UnityLesson_CSharp_ClassincludingVariablesFunctions\\UnityLesson_CSharp Equipment\\UnityLesson_CSharp Equipment.csproj",
+        "projectUniqueName": "C:\\Users\\User\\Documents\\GitHub\\UnityLessonBasic_Nowon_sat\\UnityLesson_CSharp\\UnityLesson_CSharp Equipment\\UnityLesson_CSharp Equipment.csproj",
         "projectName": "UnityLesson_CSharp Equipment",
-        "projectPath": "C:\\Users\\User\\source\\repos\\UnityLesson_CSharp_ClassincludingVariablesFunctions\\UnityLesson_CSharp Equipment\\UnityLesson_CSharp Equipment.csproj",
+        "projectPath": "C:\\Users\\User\\Documents\\GitHub\\UnityLessonBasic_Nowon_sat\\UnityLesson_CSharp\\UnityLesson_CSharp Equipment\\UnityLesson_CSharp Equipment.csproj",
         "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\User\\source\\repos\\UnityLesson_CSharp_ClassincludingVariablesFunctions\\UnityLesson_CSharp Equipment\\obj\\",
+        "outputPath": "C:\\Users\\User\\Documents\\GitHub\\UnityLessonBasic_Nowon_sat\\UnityLesson_CSharp\\UnityLesson_CSharp Equipment\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

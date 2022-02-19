@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "d127bdea-1155-4cb0-9872-d6d91c86f0e7": {
+      "ProjectGuid": "d127bdea-1155-4cb0-9872-d6d91c86f0e7",
+      "DisplayName": "UnityLesson_CSharp Equipment",
+      "ColorIndex": 0
+    },
+    "a2b860e3-9d3e-408d-a2c0-1def0b65e1a4": {
+      "ProjectGuid": "a2b860e3-9d3e-408d-a2c0-1def0b65e1a4",
+      "DisplayName": "UnityLesson_CSharp_Array",
+      "ColorIndex": 1
+    },
+    "f9069aed-80c5-4ac2-9fa5-dd3f2cd43409": {
+      "ProjectGuid": "f9069aed-80c5-4ac2-9fa5-dd3f2cd43409",
+      "DisplayName": "UnityLesson_CSharp_ClassincludingVariablesFunctions",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
