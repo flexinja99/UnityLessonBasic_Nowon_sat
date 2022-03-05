@@ -55,7 +55,62 @@
       "ProjectGuid": "f5880ac0-d3db-4c36-8f20-2fd565830dc3",
       "DisplayName": "UnityLesson_CSharp_Operator",
       "ColorIndex": 10
+    },
+    "083f01a7-7344-4e65-ac45-52edfbf5b193": {
+      "ProjectGuid": "083f01a7-7344-4e65-ac45-52edfbf5b193",
+      "DisplayName": "UnityLesson_CSharp_Array",
+      "ColorIndex": 11
+    },
+    "5221bb88-6a33-4559-a075-827c4413275d": {
+      "ProjectGuid": "5221bb88-6a33-4559-a075-827c4413275d",
+      "DisplayName": "UnityLesson_CSharp Equipment",
+      "ColorIndex": 12
+    },
+    "534648b5-e943-4a70-a02e-d9a3bb8de60b": {
+      "ProjectGuid": "534648b5-e943-4a70-a02e-d9a3bb8de60b",
+      "DisplayName": "UnityLesson_CSharp_ForLoopExample",
+      "ColorIndex": 13
+    },
+    "a4cb046f-aa46-42ec-84d9-276dee59be71": {
+      "ProjectGuid": "a4cb046f-aa46-42ec-84d9-276dee59be71",
+      "DisplayName": "UnityLesson_CSharp_Structure",
+      "ColorIndex": 14
+    },
+    "2e0b06ea-7664-45c9-84ad-9409bc6d2210": {
+      "ProjectGuid": "2e0b06ea-7664-45c9-84ad-9409bc6d2210",
+      "DisplayName": "UnityLesson_CSharp_EnumAndSwitchCase",
+      "ColorIndex": 15
+    },
+    "75b8dc7c-d409-4b11-97a6-c92567eee3df": {
+      "ProjectGuid": "75b8dc7c-d409-4b11-97a6-c92567eee3df",
+      "DisplayName": "UnityLesson_CSharp_delegate",
+      "ColorIndex": 0
+    },
+    "2ccf9035-93c4-407b-b3ed-d8861f927fb9": {
+      "ProjectGuid": "2ccf9035-93c4-407b-b3ed-d8861f927fb9",
+      "DisplayName": "UnityLesson_CSharp_Collection",
+      "ColorIndex": 1
+    },
+    "70d5843c-f50c-4aa7-8a29-3e1acc2560a9": {
+      "ProjectGuid": "70d5843c-f50c-4aa7-8a29-3e1acc2560a9",
+      "DisplayName": "ConsoleApp1",
+      "ColorIndex": 2
+    },
+    "55c86866-fe77-4cfb-ab34-0c9adb47d4fe": {
+      "ProjectGuid": "55c86866-fe77-4cfb-ab34-0c9adb47d4fe",
+      "DisplayName": "UnityLesson_CSharp HorseRacing",
+      "ColorIndex": 3
+    },
+    "639ee205-538a-4ce9-a4c7-78666852a3d1": {
+      "ProjectGuid": "639ee205-538a-4ce9-a4c7-78666852a3d1",
+      "DisplayName": "DiceGame",
+      "ColorIndex": 4
+    },
+    "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
+      "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
+      "DisplayName": "기타 파일",
+      "ColorIndex": -1
     }
   },
-  "NextColorIndex": 11
+  "NextColorIndex": 5
 }
