@@ -6,10 +6,11 @@ public class Bullet : MonoBehaviour
 {
     public Vector3 dir;
     public float speed;
+    public int damage;
     Transform tr;
 
-    private void Awake() => tr= GetComponent<Transform>();
-    
+    private void Awake() => tr = GetComponent<Transform>();
+
 
     private void FixedUpdate() => tr.Translate(dir * speed * Time.fixedDeltaTime);
 
@@ -26,4 +27,11 @@ public class Bullet : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if(tr.position.z > gameObject.transform.position.z + 30)
+        {
+            Destroy(gameObject);    
+        }
+    }
 }

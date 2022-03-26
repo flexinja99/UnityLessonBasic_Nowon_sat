@@ -11,7 +11,7 @@ public class EnemySpawner : MonoBehaviour
     public Vector3 rangeSize;
 
     public float spawnTimeGap = 0.3f;
-    private float spawnTimer;
+    public float spawnTimer;
 
     private void Update()
     {
@@ -22,7 +22,12 @@ public class EnemySpawner : MonoBehaviour
 
 
         if (spawnTimer < 0)
+        {
             Instantiate(enemyPrefab);
+            spawnTimer = spawnTimeGap;
+            
+        }
+            
         else 
             spawnTimer -= Time.deltaTime;
     }
