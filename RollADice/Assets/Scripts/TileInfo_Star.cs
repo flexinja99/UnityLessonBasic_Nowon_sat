@@ -1,10 +1,42 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.UI;
 
-namespace Assets.Scripts
+
+
+public class TileInfo_Star: TileInfo
 {
-    internal class TileInfo_Star : TileInfo
-    {
+   
 
+    private int _starValue;
+
+    public int starValue
+    {
+        set
+        {
+            _starValue = value;
+            starValueText.text = _starValue.ToString();
+        }
+        get
+        {
+            return _starValue;
+        }
     }
+    public Text starValueText;
+    public int starValueInit = 3;
+
+    public void Awake()
+    {
+        starValue = starValueInit;
+    }
+    public override void TileEvent()
+    {
+        Debug.Log($"index of this title : {index}, Increase star value + 1");
+       
+    }
+   
+        
 }
+
+    
+

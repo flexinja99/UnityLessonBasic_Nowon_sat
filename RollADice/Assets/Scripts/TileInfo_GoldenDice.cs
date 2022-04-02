@@ -1,12 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
 
-namespace Assets.Scripts
-{
-    internal class TileInfo_GoldenDice : TileInfo
+
+ public class TileInfo_GoldenDice : TileInfo
+ {
+    public override void TileEvent()
     {
+        Debug.Log($"index of this title : {index}, Increase GoldenDcie value + 1");
+        DicePlayManager.instance.diceNum++;
     }
-}
+ }

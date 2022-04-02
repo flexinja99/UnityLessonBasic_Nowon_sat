@@ -1,12 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
 
-namespace Assets.Scripts
+public class TileInfo_Dice : TileInfo
 {
-    internal class TileInfo_Dice : TileInfo
+    public override void TileEvent()
     {
+        Debug.Log($"index of this title : {index}, Increase Dice value + 1");
+        DicePlayManager.instance.diceNum++;
     }
-}
+} 
+        
+    
+
