@@ -53,8 +53,9 @@
     <UnityVersion>2020.3.25f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\0.2 scripts\PlayerController.cs" />
     <Compile Include="Assets\0.2 scripts\GroundDetector.cs" />
+    <Compile Include="Assets\0.2 scripts\PlayerController.cs" />
+    <Compile Include="Assets\0.2 scripts\EnemyController.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Bringer Of Death\License.txt" />
