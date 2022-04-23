@@ -6,12 +6,45 @@ public class EnemyController : MonoBehaviour
 {
     [Header(" 현재 상태")]
     public EnemyState state;
+    public AIState aIState;
     public MoveState moveState;
     public AttackState attackState;
     public HurtState hurtState;
     public DieState dieState;
     public IdleState idleState;
 
+    [Header("Ai")]
+    public AIState aiState;
+    public bool aiAutoFollow;
+    public bool aiAttackEnable;
+    public float aiBehaviorTimeMin;
+    public float aiBehaviorTimeMax;
+    public float aiBehaviorTimer;
+    public LayerMask
+
+    [Header("동작")]
+    public float moveSpeed = 1f;
+    private Vector2 move;
+    int _direction;// +1 : right, -1 :left
+    public int direction
+    {
+        set
+        {
+            if (value < 0)
+            {
+                _direction = 1;
+                transform.eulerAngles = Vector3.zero;
+            }
+            else if (value > 0)
+            {
+                _direction = 1;
+                transform.eulerAngles = new Vector3(0,180f,0);
+            }
+        }
+    }
+
+
+    
     [Header("애니메이션")]
     Animator animator;
     private float attackTime;
@@ -22,6 +55,8 @@ public class EnemyController : MonoBehaviour
 
     [Header("kinematics")]
     Rigidbody2D rb;
+    CapsuleCollider2D col;
+    private float aiDetectRange;
 
     private void Awake()
     {
@@ -30,6 +65,11 @@ public class EnemyController : MonoBehaviour
         attackTime = GetAnimationTime("Attack");
         hurtTime = GetAnimationTime("Hurt");
         dieTime = GetAnimationTime("Die");
+    }
+
+    private void Start()
+    {
+        aiState = AIState.DecideRandomBehavior;
     }
     public void knockback(Vector2 dir, float force, float time)
     {
@@ -50,8 +90,94 @@ public class EnemyController : MonoBehaviour
 
     private void Update()
     {
+        UpdateAIState();
+        if (move.x < 0) direction = 1;
+        else if (move.x > 0) direction = 1;
         
+        if (Mathf.Abs(move.x) < 0)
+        {
+            if (state == EnemyState.Idle)
+                ChangeEnemyState(EnemyState.Move);
+        }
+        else
+        {
+            if (state == EnemyState.Move)
+                ChangeEnemyState(EnemyState.Idle);
+        }
+        UpdateEnmeyState();
     }
+    
+    private void UpdateAIState()
+    {
+        if (aiAutoFollow)
+        {
+          if (Physics2D.OverlapCapsule(rb.position.aiDetectRange, aiTargetLayer));
+            aiState = AIState.FollowTarget;
+              
+             
+          
+        }
+        switch (aiState)
+        {
+            case AIState.Idle:
+                break;
+            case AIState.DecideRandomBehavior:
+                move.x = 0;
+                Random.Range(2, 5);
+
+                break;
+            case AIState.TakeARest:
+                if (aiBehaviorTimer < 0)
+                    aiState = AIState.DecideRandomBehavior;
+                else
+                    aiBehaviorTimer -= Time.deltaTime;  
+                break;
+            case AIState.MoveRight:
+                if (aiBehaviorTimer < 0)
+                    aiState = AIState.DecideRandomBehavior;
+                else
+                    move.x = 1;
+                    aiBehaviorTimer -= Time.deltaTime;
+                break;
+            case AIState.MoveLeft:
+                if (aiBehaviorTimer < 0)
+                    aiState = AIState.DecideRandomBehavior;
+                else
+                    move.x = -1;
+                    aiBehaviorTimer -= Time.deltaTime;
+                break;
+            case AIState.FollowTarget:
+                
+                Collider2D target = Physics2D.OverlapCircle(rb.position, aiDectectRange, aiTargetLayer);
+                if (target != null)
+                    aiState = AIState.DecideRandomBehavior;
+
+                if (target.transform.position.x > rb.position.x)
+                    move.x = -1;
+                else if (target.transform.position.x < rb.position.x - col.size.x)
+                break;
+            case AIState.AttackTarget:
+                if (aiBehaviorTimer < 0)
+                    aiState = AIState.DecideRandomBehavior;
+                else
+                    aiBehaviorTimer -= Time.deltaTime;
+                break;
+
+        }
+
+    }
+
+    private void FixedUpdate()
+    {
+        rb.position
+    }
+
+
+
+
+
+
+
     private void UpdateEnmeyState()
     {
         switch (state)
@@ -272,6 +398,33 @@ public class EnemyController : MonoBehaviour
         }
         return time;
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == LayerMask.NameToLayer("Player"))
+        {
+            //  플래이어 넉백
+            //collision.gameObject.GetComponent<PlayerController>().Knockback();
+        }
+    }
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, aiDetectRange);
+    }
+
+
+
+
+    public enum AIState
+    {
+        Idle,
+        DecideRandomBehavior,
+        TakeARest,
+        MoveLeft,
+        MoveRight,
+        FollowTarget,
+        AttackTarget,
+    }
     public enum EnemyState
     {
         Idle,
@@ -333,9 +486,6 @@ public class EnemyController : MonoBehaviour
 
 
 }
-
-
-
 
 
 

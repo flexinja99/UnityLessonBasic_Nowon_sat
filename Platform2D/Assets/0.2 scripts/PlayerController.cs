@@ -47,6 +47,9 @@ public class PlayerController : MonoBehaviour
     public FallState fallState;
     public RunState runState;
     public AttackState attackState;
+    public DashAttack dashattackState;
+    public HurtState hurtState;
+    public DieState dieState;
 
     [Header("에니메이션")]
     private Animator animator;
@@ -69,6 +72,10 @@ public class PlayerController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         groundDetector = GetComponent<GroundDetector>();
         attacktime = GetAnimationTime("Attack");
+        dashattackTime = GetAnimationTime("DashAttack");
+        hurtTime = GetAnimationTime("Hurt");
+        dieState = GetAnimationTime("Die");
+
     }
     private void Update()
     {
@@ -171,6 +178,8 @@ public class PlayerController : MonoBehaviour
                 fallState = FallState.Prepare;
 
                 break;
+            case PlayerState.DashAttack:
+                break;
             default:
                 break;
         }
@@ -200,6 +209,12 @@ public class PlayerController : MonoBehaviour
                 UpdateDashAttackState();
                 break;
             default:
+                break;
+            case PlayerState.Hurt:
+                UpdateHurtState();
+                break;
+            case PlayerState.Die:
+                UpdateDieState();
                 break;
         }
     }
@@ -361,63 +376,9 @@ public class PlayerController : MonoBehaviour
     }
     private void UpdateDashAttackState()
     {
-        // attack 을 모두 dashattack으로 바꿔야함
 
-
-        switch (attackState)
-        {
-            case AttackState.Idle:
-                break;
-            case AttackState.Prepare:
-                animator.Play("Attack");
-                animationTimer = attacktime;
-                attackState++;
-                break;
-            case AttackState.Casting:
-                if (animationTimer < attacktime 2 / 3)
-                {
-                    // 적 캐스팅
-                    Vector2 tmpCenter = attackBoxCastCenter + rb.position;
-
-                     hit = Physics2D.BoxAll(attackBoxCastCenter + rb.position,
-                                                         attackBoxCastSIze,
-                                                         0,
-                                                        Vector2.zero,
-                                                        1,
-                                                        enemyLayer);
-
-
-                    dashattackState++;
-                }
-
-
-
-
-
-                else
-                    animationTimer -= Time.deltaTime;
-
-                break;
-            case AttackState.OnAction:
-                if (animationTimer < dashAttackTime / 3)
-                {
-                    foreach (var hit in hits)
-                    {
-                        if (hit.collider != null)
-                        {
-                            Debug.Log(hit.collider.gameObject.name);
-                            hit.collider.GetComponent<EnemyController>().knockback(new Vector2(direction, 0), attackKnockbackForce, attackKnockbackTime);
-                        }
-                    }
-                }
-                else
-                    animationTimer -= Time.deltaTime;
-                break;
-            case AttackState.Finish:
-                ChangePlayerState(PlayerState.Idle);
-                break;
-        }
     }
+
     private float GetAnimationTime(string name)
     {
         float time = 0f;
@@ -438,10 +399,80 @@ public class PlayerController : MonoBehaviour
 
     }
      
+    private void UpdateHurtState()
+    {
+
+        switch (hurtState)
+        {
+            case HurtState.Idle:
+
+                break;
+            case HurtState.Prepare:
+                animator.Play("Hurt");
+                animationTimer = hurtTime;
+                break;
+            case HurtState.Casting:
+                UpdateJumpstate();
+                break;
+            case HurtState.OnAction:
+                UpdateFallState();
+                break;
+            case HurtState.Finish:
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    private void UpdateDieState()
+    {
+
+        switch (dieState)
+        {
+            case DieState.Idle:
+
+                break;
+            case DieState.Prepare:
+                animator.Play("Die");
+                animationTimer = dieTime;
+                break;
+            case DieState.Casting:
+                UpdateJumpstate();
+                break;
+            case DieState.OnAction:
+                UpdateFallState();
+                break;
+            case DieState.Finish:
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    
 
 }
 
+public enum DieState
+{
+    Idle,
+    Prepare,
+    Casting,
+    OnAction,
+    Finish,
 
+}
+
+public enum HurtState
+{
+    Idle,
+    Prepare,
+    Casting,
+    OnAction,
+    Finish,
+}
 
 
 public enum PlayerState
